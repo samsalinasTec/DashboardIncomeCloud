@@ -1,0 +1,1 @@
+This project was developed for a marketing company; however, for security reasons, all sensitive information has been replaced, simulating a cloud services company. Additionally, for each section of the “ETL,” only examples based on the original code have been used (since it contained explicit references to important company information)
