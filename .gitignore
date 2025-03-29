@@ -1,0 +1,5 @@
+*.csv
+SQLTablasLog.log
+*.ipynb
+*.xlsx
+.json
