@@ -1,10 +1,12 @@
-Los archivos obtenidos del procesamiento en [Transform Main script](./TablesTransformMain.py) se guardan en archivos CSV dentro de la VM. Luego se accede a estos archivos con ayuda del script [LoadFilesBQ](./LoadFilesBQ.py) para poderlos subir a nuestro respositorio en la nube. 
+The files generated from processing in the [Transform Main script](./TablesTransformMain.py) are saved as CSV files within the VM. These files are then accessed by the [LoadFilesBQ](./LoadFilesBQ.py) to upload them to our cloud repository.
 
-Este script basicamente consta de tres secciones:
+This script mainly consists of four sections:
 
-- Carga de credenciales para acceso al repositorio (que previamente debio configurarse en la terminal de google cloud computing)
-- Carga de archivos CSV para su formateo especifico de tipos de datos, con los que se cargaran al repositorio
-- Creacion de configuaraciones para el formateo de tipos de datos para cada tabla
-- Carga de las tablas con la configuracion establecida, a nuestro repositorio.
+- Loading credentials for repository access (previously configured through the Google Cloud Computing terminal).
+- Loading CSV files and preparing them by formatting data types specifically required by the repository.
+- Creating configuration settings to specify data types for each table.
+- Uploading tables to our repository using these defined configurations.
 
-Al revisar el script podra notarse que se eliminan las tablas cargadas anteriormente (carga del dia anterior). Dado que la carga y almacenamiento de informacion de BQ es de muy bajo costo, heos decidido hacerlo asi para poder coregir posible errores en cargas anteiores dentro de los historicos, ademas para poder hacer un hard reset en caso de algun mal funcionamiento de nuestro proceso y poder eliminar todo y cargarlo nuevamente. Sin embargo, teoricamente, este no es lo mas viable. El ideal seria solo añadir los registros nuevos a las tablas ya existente en el repositorio, y tener la posibilidad de hacer un hard reset de nuestras tablas en el repositorio con ayuda de otro modulo. Esta es una funcionalidad que aun se sigue trabajando y se actualizara el script una vez que se consiga. 
+When reviewing the script, you’ll notice it removes previously loaded tables (uploaded the previous day). Given that the cost of loading and storing data in BigQuery is very low, we have chosen this approach to simplify the correction of potential errors in previous uploads and to enable a complete reset in case the process malfunctions—allowing us to delete and reload all data if necessary.
+
+However, from a theoretical standpoint, this approach is not optimal. Ideally, only new records should be appended to existing tables, and a separate module should provide functionality for a complete (hard) reset of the tables in the repository when needed. This functionality is still under development, and the script will be updated accordingly once this improvement has been implemented.
