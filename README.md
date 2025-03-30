@@ -16,6 +16,10 @@ Once the data has been downloaded, the [Transform Main script](./TablesTransform
 
 The final step of the ETL process involves loading the structured data into a database. In our case, we chose BigQuery as our cloud data repository. The loading [Load Files to BQ](./LoadFilesBQ.py) scripts format data types appropriately and upload the processed data into BigQuery.
 
+To achieve a fully automated pipeline, it’s essential to have a tool capable of automatically executing scripts at specific times. We’ve chosen to use a virtual machine (VM), onto which we've loaded all our scripts and configured cron jobs to execute them at scheduled intervals.
+
+The scripts do not include AI models, and the data processing is robust—handling files containing up to 10 million rows. Despite this robustness, even a low-tier VM can execute these scripts without significant issues. The primary consideration in this scenario is RAM, particularly for executing preprocessing tasks effectively. We recommend a VM with at least 16 GB of
+
 With our data now stored in the cloud repository, we can directly access it using data processing and visualization tools like Power BI. By querying BigQuery from Power BI, we can retrieve these tables and create visualizations that provide clear and immediate insights into the performance of predefined KPIs. Once the data modeling has been set up in Power BI, it only remains necessary to create specific measures for particular sections of our dashboard. Additionally, special attention was given to UX and UI design, incorporating intuitive layouts and interactive buttons wherever possible.
 
 It's important to mention that the use of a cloud repository significantly resolves challenges related to automating the entire process. To enable automated updates in Power BI, we needed to avoid limitations associated with directly querying traditional databases (such as restrictions on simultaneous sessions), querying local CSV files, managing access keys, and handling slow download speeds. BigQuery effectively addresses many of these challenges.
