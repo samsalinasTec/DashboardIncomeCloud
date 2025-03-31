@@ -3,6 +3,15 @@ This project was developed for a marketing company; however, for security reason
 
 However, the code is essentially the same as what was used for the real ETL. If you want a deeper understanding of the project—whether to resolve very specific questions or to learn how certain problems were solved in order to replicate this project—feel free to contact me.
 
+## Technologies and Tools Used:
+
+- Python for data extraction, cleaning, and transformation
+- SQL (various queries for data retrieval)
+- Cron jobs hosted on a Virtual Machine (VM) for scheduling and automation
+- BigQuery as the cloud-based repository for scalable data storage
+- Power BI for data visualization, dashboard creation, and KPI tracking
+- A star schema data model to ensure efficient queries and clear data relationships
+
 # Project Scope
 In general, this project represents a comprehensive application of knowledge in:
 
